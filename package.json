@@ -7,7 +7,7 @@
   "license": "Proprietary",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --progress --colors",
+    "start": "webpack-dev-server --progress --colors --open",
     "test": "jest",
     "build:dev": "NODE_ENV=production webpack --env dev --progress --colors",
     "build:prod": "NODE_ENV=production webpack --env production --progress --colors"
@@ -18,6 +18,9 @@
     "last 1 Safari major versions"
   ],
   "dependencies": {
+    "@material-ui/core": "^3.5.1",
+    "@material-ui/icons": "^3.0.1",
+    "bulma": "^0.7.2",
     "classnames": "2.2.5",
     "history": "4.7.2",
     "prop-types": "15.6.1",

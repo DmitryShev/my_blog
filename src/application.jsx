@@ -1,16 +1,21 @@
 /* globals window document */
 import React from 'react';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { hot } from 'react-hot-loader';
 
 import './assets/css/styles.css';
 import './assets/scss/styles.scss';
 
-import { Banner } from './components/Banner';
+import { NavBar } from './components/NavBar';
+import { Header } from './components/Header';
+import { About } from './components/elements/AboutMe';
+
+const theme = createMuiTheme();
 
 export const Application = hot(module)(() => (
   <React.Fragment>
-    <h1 className="title">React Starter Template</h1>
-    <p>Build with Webpack 4</p>
-    <Banner />
+    <NavBar />
+    <Header />
+    <About />
   </React.Fragment>
 ));
