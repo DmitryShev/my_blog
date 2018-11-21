@@ -125,6 +125,7 @@ module.exports = (releaseStage) => {
   rules.push({
     test: /\.(eot|svg|ttf|otf|woff|woff2)$/,
     loader: 'file-loader',
+    include: join(__dirname, 'src/assets/fonts'),
     options: {
       name: isDevelopment ? 'fonts/[name].[ext]' : 'fonts/[name]-[hash].[ext]'
     }

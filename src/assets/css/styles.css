@@ -24,3 +24,35 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "LoraBold";
+  src: local('☺'),
+  url('../fonts/Lora-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LoraBoldItalic";
+  src: local('☺'),
+  url('../fonts/Lora-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "LoraItalic";
+  src: local('☺'),
+  url('../fonts/Lora-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "LoraRegular";
+  src: local('☺'),
+  url('../fonts/Lora-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
