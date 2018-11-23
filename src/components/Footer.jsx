@@ -24,7 +24,9 @@ const styles = {
 
 const Foo = ({ classes }) => (
   <Grid container className={classes.container}>
-    <Typography className={classes.text}>Activello. Theme by Colorlib Powered by WordPress</Typography>
+    <Typography className={classes.text}>
+      Activello. Theme by Colorlib Powered by WordPress
+    </Typography>
   </Grid>
 );
 

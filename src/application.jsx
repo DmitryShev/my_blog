@@ -20,15 +20,7 @@ import { BigPost } from './components/elements/BigPost';
 
 const theme = createMuiTheme({
   typography: {
-    /*fontFamily: [
-      'LoraRegular',
-      'LoraItalic',
-      'LoraBold',
-      'LoraBoldItalic'
-    ].join(','), */
-    /*fontFamily: [
-      'LoraRegular',
-    ].join(','),*/
+
     h6: {
       fontFamily: ['Montserrat', 'sans-serif'].join(','),
       textTransform: 'uppercase',
