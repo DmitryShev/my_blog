@@ -8,8 +8,14 @@ import './assets/scss/styles.scss';
 
 import { NavBar } from './components/NavBar';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { Carusel } from './components/elements/Carusel';
 import { About } from './components/elements/AboutMe';
 import { Follow } from './components/elements/FollowMe';
+import { RecentPosts } from './components/elements/RecentPosts';
+import { Search } from './components/elements/Search';
+import { Categories } from './components/elements/Categories';
+import { BigPost } from './components/elements/BigPost';
 
 
 const theme = createMuiTheme({
@@ -40,5 +46,11 @@ export const Application = hot(module)(() => (
     <Header />
     <About />
     <Follow />
+    <RecentPosts />
+    <Search />
+    <Categories />
+    <Carusel />
+    <BigPost />
+    <Footer />
   </MuiThemeProvider>
 ));
