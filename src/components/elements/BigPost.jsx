@@ -114,7 +114,7 @@ const Post = ({
         </a>
       </Typography>
 
-      <Typography variant="p" component="p" className={classes.postDate}>
+      <Typography variant="body1" component="body1" className={classes.postDate}>
         {postDate}
       </Typography>
 

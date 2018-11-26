@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { objectOf, string } from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
+// import InputBase from '@material-ui/core/InputBase';
 import Grid from '@material-ui/core/Grid';
-// import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Hidden from '@material-ui/core/Hidden';
 
-import SearchIcon from '@material-ui/icons/Search';
+// import SearchIcon from '@material-ui/icons/Search';
+import MenuIcon from '@material-ui/icons/Menu';
 
 
 const styles = {
@@ -39,17 +43,7 @@ const styles = {
   },
   search: {
     margin: '0 10px',
-    border: '1px solid',
-    '&:hover': {
-      border: '1px solid #666'
-    },
-    '&:focus': {
-      border: '1px solid #666',
-      width: '400px',
-    },
   },
-
-
   inputRoot: {
     color: 'inherit',
     width: '100%',
@@ -65,57 +59,91 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+  menu: {
+    '& li': {
+      color: '#1c202a',
+      textTransform: 'uppercase',
+      fontSize: '12px',
+      fontWeight: 'bold',
+      lineHeight: '2.6',
+      letterSpacing: '1px',
+      fontFamily: "'Montserrat', sans-serif",
+    }
+  }
 };
 
+class NavigationBar extends Component {
+  static defaultProps = {
+    link: '#'
+  }
 
-const NavigationBar = ({ classes, link }) => (
-  <div className={classes.container}>
-    <AppBar position="fixed" color="default">
-      <Toolbar>
-        <Grid container className={classes.grid}>
-          <Typography>
-            <a href={link}>Home</a>
-          </Typography>
-          <Typography>
-            <a href={link}>Features</a>
-          </Typography>
-          <Typography>
-            <a href={link}>Lifestyle</a>
-          </Typography>
-          <Typography>
-            <a href={link}>Travel</a>
-          </Typography>
-          <Typography>
-            <a href={link}>Music</a>
-          </Typography>
-          <Typography>
-            <a href={link}>про меня</a>
-          </Typography>
-          <Typography>
-            <a href={link}>contact</a>
-          </Typography>
-        </Grid>
+  static propTypes = {
+    classes: objectOf(string).isRequired,
+    link: string
+  }
 
-        <div>
-          <InputBase placeholder="Search…" className={classes.search} />
-        </div>
-        <div>
-          <SearchIcon />
-        </div>
+  state = {
+    anchorEl: null
+  }
 
-      </Toolbar>
-    </AppBar>
-  </div>
-);
+  handleClick = (event) => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
 
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
 
-NavigationBar.propTypes = {
-  classes: objectOf(string).isRequired,
-  link: string
-};
+  render() {
+    const { link, classes } = this.props;
+    const { anchorEl } = this.state;
+    return (
+      <div className={classes.container}>
+        <AppBar position="fixed" color="default">
+          <Toolbar>
+            <Grid container className={classes.grid}>
+              <Hidden xsDown>
+                <Typography><a href={link}>Home</a></Typography>
+                <Typography><a href={link}>Features</a></Typography>
+                <Typography><a href={link}>Lifestyle</a></Typography>
+                <Typography><a href={link}>Travel</a></Typography>
+                <Typography><a href={link}>Music</a></Typography>
+                <Typography><a href={link}>про меня</a></Typography>
+                <Typography><a href={link}>contact</a></Typography>
+              </Hidden>
+            </Grid>
 
-NavigationBar.defaultProps = {
-  link: '#'
-};
+            <div>
+              <Hidden smUp>
+                <IconButton aria-haspopup="true" onClick={this.handleClick} aria-owns={anchorEl ? 'simple-menu' : undefined}>
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="simple-menu"
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={this.handleClose}
+                  className={classes.menu}
+                >
+                  <MenuItem onClick={this.handleClose}>Home</MenuItem>
+                  <MenuItem onClick={this.handleClose}>Features</MenuItem>
+                  <MenuItem onClick={this.handleClose}>Lifestyle</MenuItem>
+                  <MenuItem onClick={this.handleClose}>Travel</MenuItem>
+                  <MenuItem onClick={this.handleClose}>Music</MenuItem>
+                  <MenuItem onClick={this.handleClose}>About me</MenuItem>
+                  <MenuItem onClick={this.handleClose}>Contact</MenuItem>
+                </Menu>
+              </Hidden>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
+}
 
 export const NavBar = withStyles(styles)(NavigationBar);

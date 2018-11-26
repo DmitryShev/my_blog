@@ -49,7 +49,7 @@ const AboutMe = ({ classes }) => (
         image="https://froot.nl/wp-content/uploads/2016/11/huawei-970x350.jpg"
         title="Contemplative Reptile"
       />
-      <Typography component="p" className={classes.article}>
+      <Typography component="body1" className={classes.article}>
         My name is Activello and I am an awesome WordPress blog theme
         for photography, food, travel and other blogs. I was created by colorlib.
       </Typography>

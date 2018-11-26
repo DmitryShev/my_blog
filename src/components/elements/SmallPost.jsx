@@ -59,7 +59,7 @@ const Post = ({ classes }) => (
           <Typography component="h3" variant="h6" className={classes.content}>
             Post Format: Standard
           </Typography>
-          <Typography component="p" variant="subtitle2" className={classes.contentDate}>
+          <Typography component="body1" variant="subtitle2" className={classes.contentDate}>
             - 05 Oct , 2016
           </Typography>
         </Grid>

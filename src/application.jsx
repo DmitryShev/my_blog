@@ -9,6 +9,7 @@ import './assets/scss/styles.scss';
 import { NavBar } from './components/NavBar';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { Main } from './components/Main';
 import { Carusel } from './components/elements/Carusel';
 import { About } from './components/elements/AboutMe';
 import { Follow } from './components/elements/FollowMe';
@@ -20,7 +21,13 @@ import { BigPost } from './components/elements/BigPost';
 
 const theme = createMuiTheme({
   typography: {
-
+    h1: {
+      fontFamily: ['Montserrat', 'sans-serif'].join(','),
+      fontSize: '28px',
+      color: '#696969',
+      lineHeight: 1.1,
+      textTransform: 'uppercase',
+    },
     h6: {
       fontFamily: ['Montserrat', 'sans-serif'].join(','),
       textTransform: 'uppercase',
@@ -36,13 +43,8 @@ export const Application = hot(module)(() => (
   <MuiThemeProvider theme={theme}>
     <NavBar />
     <Header />
-    <About />
-    <Follow />
-    <RecentPosts />
-    <Search />
-    <Categories />
-    <Carusel />
-    <BigPost />
+    <Main />
+
     <Footer />
   </MuiThemeProvider>
 ));

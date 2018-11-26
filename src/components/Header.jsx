@@ -1,28 +1,52 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { objectOf, string } from 'prop-types';
 
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core';
 
+import { Carusel } from './elements/Carusel';
 
-export class Header extends Component {
-  state = {
-    nextSlide: false
-  }
+const styles = {
+  container: {
+    marginTop: '64px',
+    textAlign: 'center',
+  },
+  header: {
+    marginTop: '64px',
+    height: '168px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignContent: 'center',
+    '& h1': {
+      color: '#337ab7',
+    },
+    '& p': {
+      color: '#696969',
+      fontSize: '14px',
+      letterSpacing: '1px',
+      lineHeight: '28px'
+    }
+  },
+};
 
-  onChangeSlide = () => (
-    this.setState({ nextSlide: !this.state.nextSlide })
-  )
+const Heading = ({ classes }) => (
+  <div className={classes.container}>
+    <div className={classes.header}>
+      <Typography variant="h1">
+        Activello
+      </Typography>
+      <Typography variant="body1">
+        Minimal worldpress theme for bloggers
+      </Typography>
+    </div>
+    <Carusel />
+  </div>
+);
 
-  render() {
-    return (
-      <div>
-        <Typography variant="h2" color="inherit">
-          Activello
-        </Typography>
-        <Typography variant="h4" color="inherit">
-          minimal worldpress theme for bloggers
-        </Typography>
+Heading.propTypes = {
+  classes: objectOf(string).isRequired
+};
 
-      </div>
-    );
-  }
-}
+export const Header = withStyles(styles)(Heading);

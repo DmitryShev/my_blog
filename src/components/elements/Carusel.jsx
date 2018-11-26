@@ -37,19 +37,31 @@ const testData = [
     imgPath:
       'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
   },
+  {
+    label: 'hello',
+    imgPath:
+      'https://ei.marketwatch.com/Multimedia/2018/05/17/Photos/ZH/MW-GJ358_earthq_20180517080038_ZH.jpg?uuid=ea4e2e54-59c9-11e8-b8ec-ac162d7bc1f7'
+  }
 ];
-
 
 const styles = {
   container: {
-
+    height: '50%'
+  },
+  imgContainer: {
   },
   img: {
-    maxWidth: '800px',
+    /* maxWidth: '400px',
     overflow: 'hidden',
     display: 'block',
     width: '100%',
-    margin: '0 auto'
+    margin: '0 auto' */
+
+    width: '100%',
+    display: 'block',
+    minHeight: '100%',
+    height: '350px',
+    verticalAlign: 'middle',
   }
 };
 
@@ -90,6 +102,7 @@ class Stepper extends Component {
           onChangeIndex={this.handleStepChange}
           enableMouseEvents
           interval={8000}
+          className={classes.imgContainer}
         >
           {testData.map((step, index) => (
             <div key={step.label}>
